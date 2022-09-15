@@ -17,6 +17,10 @@ const Search = () => {
     const res = await fetch(url);
     const data = await res.json();
 
+    /** Ordenação do array em ordem decrescende em relação a data de lançamento */
+    data.results.sort((a, b) => Date.parse(b.release_date) - Date.parse(a.release_date));
+    /** Fim da ordenação */
+
     setMovies(data.results);
   };
 
