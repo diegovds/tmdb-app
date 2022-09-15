@@ -3,7 +3,6 @@ import MovieCard from "../components/MovieCard/MovieCard";
 
 import "./MoviesGrid.css";
 
-const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
@@ -17,7 +16,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const topRatedUrl = `${moviesURL}top_rated?${apiKey}`;
+    const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?${apiKey}`;
 
     getTopRatedMovies(topRatedUrl);
   }, []);

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieCard from "../components/MovieCard/MovieCard";
 
-const searchURL = import.meta.env.VITE_SEARCH;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 import "./MoviesGrid.css";
@@ -25,7 +24,7 @@ const Search = () => {
   };
 
   useEffect(() => {
-    const searchWithQueryURL = `${searchURL}?${apiKey}&query=${query}`;
+    const searchWithQueryURL = `https://api.themoviedb.org/3/search/movie?${apiKey}&query=${query}`;
 
     getSearchedMovies(searchWithQueryURL);
   }, [query]);
