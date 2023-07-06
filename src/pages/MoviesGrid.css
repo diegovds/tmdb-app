@@ -10,18 +10,21 @@
 }
 
 .movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    20%
+  );
+  gap: 3rem;
+  justify-content: center;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .movies-container div {
-  width: 30%;
+  width: 100%;
   color: #fff;
-  margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -59,4 +62,31 @@
 .movies-container div a:hover {
   background-color: transparent;
   color: #f7d354;
+}
+
+@media (max-width: 425px){
+  .movies-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      100%
+    );
+  }
+}
+
+@media (max-width: 543px) and (min-width: 426px){
+  .movies-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      80%
+    );
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 544px){
+  .movies-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      45%
+    );
+  }
 }
