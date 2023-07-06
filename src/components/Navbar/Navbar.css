@@ -33,6 +33,7 @@
   font-size: 1.3rem;
   display: flex;
   align-items: center;
+  justify-content:center;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -40,4 +41,25 @@
 #navbar button:hover {
   background-color: transparent;
   color: #f7d354;
+}
+
+#navbar input, #navbar button {
+  height: 2rem;
+}
+
+#navbar button svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+@media (max-width: 500px){
+  #navbar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  #navbar input, #navbar button {
+    height: 1.6rem;
+  }
 }
