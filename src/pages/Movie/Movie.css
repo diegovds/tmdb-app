@@ -4,6 +4,9 @@
   flex-direction: column;
   max-width: 600px;
   margin: 2rem auto;
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
 .movie-page svg {
@@ -19,6 +22,11 @@
 .movie-page .movie-card h2,
 .movie-page .movie-card p {
   margin-bottom: 1rem;
+}
+
+.movie-page .movie-card img {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .movie-page .movie-card h2 {
@@ -58,9 +66,32 @@
 }
 
 .description {
-  padding-bottom: 10rem;
+  text-align: justify;
 }
 
 .description p {
   line-height: 1.4rem;
+}
+
+@media (max-width: 650px) {
+  .movie-page {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .movie-page .movie-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .info h3, 
+  .description h3 {
+    font-size: 1.1rem;
+  }
+
+  .movie-page .movie-card p,
+  .tagline,
+  .info p,
+  .description p {
+    font-size: 0.9rem;
+  }
 }

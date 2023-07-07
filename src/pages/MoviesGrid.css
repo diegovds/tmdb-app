@@ -30,10 +30,12 @@
   justify-content: space-between;
   background-color: #111;
   padding: 1rem;
+  border-radius: 10px;
 }
 
 .movies-container div img {
   max-width: 100%;
+  border-radius: 10px;
 }
 
 .movies-container div img,
@@ -43,6 +45,8 @@
 
 .movies-container div h2 {
   margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .movies-container div svg {
