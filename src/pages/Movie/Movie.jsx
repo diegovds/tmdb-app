@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import {
-  BsGraphUp,
-  BsWallet2,
-  BsHourglassSplit,
+  BsCalendar3,
   BsFillFileEarmarkTextFill,
+  BsFilm,
+  BsGraphUp,
+  BsHourglassSplit,
+  BsWallet2,
 } from "react-icons/bs";
+import { useParams } from "react-router-dom";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 
@@ -16,11 +18,21 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [genres, setGenres] = useState("");
 
   const getMovie = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
+    let date = new Date(data.release_date);
+
+    data.release_date = date.toLocaleDateString("pt-BR", { timeZone: "UTC" });
+
+    let genresString = data?.genres.map((genre, i) =>
+      i === 0 ? genre.name : genre.name.toLowerCase()
+    );
+
+    setGenres(genresString.join().replaceAll(",", ", "));
+
     setMovie(data);
   };
 
@@ -45,6 +57,12 @@ const Movie = () => {
           <p className="tagline">{movie.tagline}</p>
           <div className="info">
             <h3>
+              <BsCalendar3 /> Lançamento:
+            </h3>
+            <p>{movie.release_date}</p>
+          </div>
+          <div className="info">
+            <h3>
               <BsWallet2 /> Orçamento:
             </h3>
             <p>{formatCurrency(movie.budget)}</p>
@@ -60,6 +78,12 @@ const Movie = () => {
               <BsHourglassSplit /> Duração:
             </h3>
             <p>{movie.runtime} minutos</p>
+          </div>
+          <div className="info">
+            <h3>
+              <BsFilm /> Gênero(s):
+            </h3>
+            <p>{genres}</p>
           </div>
           <div className="description">
             <h3>
