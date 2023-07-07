@@ -43,6 +43,11 @@
   margin-bottom: 1rem;
 }
 
+.movies-container div p {
+  width: 100%;
+  text-align: center;
+}
+
 .movies-container div h2 {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
